@@ -5,76 +5,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CPML Bridge 2027 · AAAI-27</title>
 <meta name="description" content="The AAAI-27 Bridge on Constraint Programming and Machine Learning (CPML), Montréal, Canada, February 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#fff; --ink:#1a1a1a; --muted:#666; --line:#e5e5e5; --link:#1f4fbf; --tbd:#fff3c4}
+  :root{--bg:#fbfbf9; --card:#fff; --ink:#1b1e2b; --muted:#5f6475; --line:#e6e6e1; --accent:#2f55d4; --accent2:#12907f; --soft:#eef2fd; --tbd:#fff1c2}
   @media (prefers-color-scheme: dark){
-    :root{--bg:#141414; --ink:#e8e8e8; --muted:#9a9a9a; --line:#2c2c2c; --link:#8fb0ff; --tbd:#4a3d10}
+    :root{--bg:#12141c; --card:#1a1d28; --ink:#e6e8f0; --muted:#9a9fb2; --line:#2a2e3c; --accent:#8ea6ff; --accent2:#4fd1bd; --soft:#1b2035; --tbd:#4a3d10}
   }
-  body{margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 Georgia,"Times New Roman",serif}
-  main{max-width:720px; margin:0 auto; padding:40px 16px 64px}
-  a{color:var(--link)}
-  h1{font-size:2rem; line-height:1.2; margin:0 0 .3em}
-  h2{font-size:1.3rem; margin:2.2em 0 .6em; padding-bottom:.3em; border-bottom:1px solid var(--line)}
-  nav{font-family:system-ui,sans-serif; font-size:.95rem; margin:18px 0 0}
-  nav a{margin-right:16px; text-decoration:none}
-  .sub{color:var(--muted); margin:0}
-  ul{padding-left:1.2em}
-  li{margin:.2em 0}
-  table{border-collapse:collapse; width:100%}
-  td{padding:6px 0; border-bottom:1px solid var(--line); vertical-align:top}
-  td:first-child{width:12em; font-weight:bold}
-  .tbd{background:var(--tbd); padding:0 .25em} /* placeholder: search for "tbd" */
-  footer{margin-top:3em; color:var(--muted); font-size:.9rem}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink); font:16.5px/1.7 Inter,system-ui,sans-serif}
+  a{color:var(--accent)}
+  h1,h2{font-family:"Source Serif 4",Georgia,serif; font-weight:600; line-height:1.2}
+  .wrap{max-width:760px; margin:0 auto; padding:0 16px}
+
+  header{background:linear-gradient(135deg,var(--soft),var(--bg) 70%); border-bottom:1px solid var(--line); padding:56px 0 40px}
+  .eyebrow{font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent2); margin:0 0 10px}
+  h1{font-size:clamp(1.9rem,5vw,2.6rem); margin:0 0 14px}
+  h1 .cp{color:var(--accent)} h1 .ml{color:var(--accent2)}
+  .facts{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px; padding:0; list-style:none}
+  .facts li{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:4px 14px; font-size:.92rem; font-weight:500}
+  nav a{display:inline-block; margin:0 18px 6px 0; font-size:.95rem; font-weight:500; text-decoration:none}
+  nav a:hover{text-decoration:underline}
+
+  section{padding:40px 0 8px}
+  h2{font-size:1.45rem; margin:0 0 14px; padding-left:12px; border-left:3px solid var(--accent)}
+  p{margin:0 0 1em}
+  .topics{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
+  .topics li{background:var(--soft); border-radius:8px; padding:4px 12px; font-size:.92rem}
+
+  .dates{margin:0; padding:0; list-style:none; border-left:2px solid var(--line)}
+  .dates li{position:relative; padding:0 0 14px 20px}
+  .dates li::before{content:""; position:absolute; left:-6px; top:8px; width:10px; height:10px; border-radius:50%; background:var(--accent2)}
+  .dates b{display:block}
+  .small{font-size:.88rem; color:var(--muted)}
+
+  .people{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px}
+  .person{display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px}
+  .avatar{flex:none; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:600; font-size:.9rem; background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  .person b{display:block; line-height:1.3}
+  .person span{display:block; font-size:.88rem; line-height:1.4; color:var(--muted)}
+
+  .tbd{background:var(--tbd); padding:0 .3em; border-radius:3px} /* placeholder: search for "tbd" */
+  footer{margin-top:40px; border-top:1px solid var(--line); padding:20px 0 40px; color:var(--muted); font-size:.88rem}
 </style>
 </head>
 <body>
-<main>
 
-<h1>Constraint Programming and Machine Learning Bridge</h1>
-<p class="sub">AAAI-27 Bridge Program · February 16–17, 2027 · Montréal, Canada</p>
-<nav>
-  <a href="#about">About</a>
-  <a href="#call">Call for participation</a>
-  <a href="#dates">Dates</a>
-  <a href="#organizers">Organizers</a>
-  <a href="#contact">Contact</a>
-</nav>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">AAAI-27 Bridge Program</p>
+    <h1><span class="cp">Constraint Programming</span> and <span class="ml">Machine Learning</span> Bridge</h1>
+    <ul class="facts">
+      <li>February 16–17, 2027</li>
+      <li>Montréal, Canada</li>
+      <li>In person</li>
+    </ul>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#call">Call for participation</a>
+      <a href="#dates">Dates</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<h2 id="about">About</h2>
-<p>The CPML Bridge brings together the constraint programming and machine learning communities at <a href="https://aaai.org/conference/aaai/aaai-27/">AAAI-27</a>. Through tutorials, short talks and discussion, participants learn each other's tools, share open problems and start new collaborations. Only introductory familiarity with one of the two fields is needed; researchers from related areas (SAT, operations research, optimisation, neuro-symbolic AI) are welcome.</p>
-<p>Topics include, but are not limited to:</p>
-<ul>
-  <li>Learning to solve, learned heuristics, algorithm selection</li>
-  <li>Constraint acquisition</li>
-  <li>Predict-then-optimise and decision-focused learning</li>
-  <li>Constraints in neural networks; verification of ML models</li>
-  <li>LLMs for modelling and solving</li>
-  <li>Benchmarks and applications</li>
-</ul>
+<main class="wrap">
 
-<h2 id="call">Call for participation</h2>
-<p>Participation is by invitation based on a short submission that combines CP and ML in some way and is accessible to non-specialists. We welcome research abstracts, position papers, open problems, and tool or demo descriptions (up to <span class="tbd">[N]</span> pages).</p>
-<p>Submit a PDF via <span class="tbd">[submission link]</span>. Accepted contributions will be posted on this page. The bridge is in person only.</p>
+<section id="about">
+  <h2>About</h2>
+  <p>The CPML Bridge brings together the constraint programming and machine learning communities at <a href="https://aaai.org/conference/aaai/aaai-27/">AAAI-27</a>. Through tutorials, short talks and discussion, participants learn each other's tools, share open problems and start new collaborations. Only introductory familiarity with one of the two fields is needed; researchers from related areas (SAT, operations research, optimisation, neuro-symbolic AI) are welcome.</p>
+  <p>Topics include, but are not limited to:</p>
+  <ul class="topics">
+    <li>Learning to solve</li>
+    <li>Learned heuristics</li>
+    <li>Algorithm selection</li>
+    <li>Constraint acquisition</li>
+    <li>Predict-then-optimise</li>
+    <li>Decision-focused learning</li>
+    <li>Constraints in neural networks</li>
+    <li>Verification of ML models</li>
+    <li>LLMs for modelling and solving</li>
+    <li>Benchmarks and applications</li>
+  </ul>
+</section>
 
-<h2 id="dates">Important dates</h2>
-<table>
-  <tr><td>December 1, 2026</td><td>Submission deadline</td></tr>
-  <tr><td>December 13, 2026</td><td>Notification</td></tr>
-  <tr><td>February 16–17, 2027</td><td>Bridge at AAAI-27 <span class="tbd">[exact day TBC]</span></td></tr>
-</table>
-<p class="sub">Deadlines are Anywhere on Earth (UTC−12).</p>
+<section id="call">
+  <h2>Call for participation</h2>
+  <p>Participation is by invitation based on a short submission that combines CP and ML in some way and is accessible to non-specialists. We welcome research abstracts, position papers, open problems, and tool or demo descriptions (up to <span class="tbd">[N]</span> pages).</p>
+  <p>Submit a PDF via <span class="tbd">[submission link]</span>. Accepted contributions will be posted on this page. The bridge is in person only.</p>
+</section>
 
-<h2 id="organizers">Organizers</h2>
-<ul>
-  <li>Dimos Tsouros, University of Western Macedonia</li>
-  <li><span class="tbd">[Name, Affiliation]</span></li>
-  <li><span class="tbd">[Name, Affiliation]</span></li>
-</ul>
+<section id="dates">
+  <h2>Important dates</h2>
+  <ul class="dates">
+    <li><b>December 1, 2026</b>Submission deadline</li>
+    <li><b>December 13, 2026</b>Notification</li>
+    <li><b>February 16–17, 2027</b>Bridge at AAAI-27 <span class="tbd">[exact day TBC]</span></li>
+  </ul>
+  <p class="small">Deadlines are Anywhere on Earth (UTC−12).</p>
+</section>
 
-<h2 id="contact">Contact</h2>
-<p>Questions: <span class="tbd">[email]</span>. Registration is through the <a href="https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/">AAAI-27 registration page</a>.</p>
+<section id="organizers">
+  <h2>Organizers</h2>
+  <div class="people">
+    <div class="person"><div class="avatar">EF</div><div><b>Eugene C. Freuder</b><span>University College Cork</span></div></div>
+  </div>
+</section>
 
-<footer>CPML Bridge 2027 · AAAI-27</footer>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Questions: <span class="tbd">[email]</span>. Registration is through the <a href="https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/">AAAI-27 registration page</a>.</p>
+</section>
+
 </main>
+
+<footer><div class="wrap">CPML Bridge 2027 · AAAI-27 Bridge Program</div></footer>
+
 </body>
 </html>
