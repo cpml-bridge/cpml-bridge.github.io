@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CPML Bridge 2027 · AAAI-27</title>
-<meta name="description" content="The AAAI-27 Bridge on Constraint Programming and Machine Learning (CPML), Montréal, Canada, February 2027.">
+<title>CPML27 · AAAI-27 Bridge</title>
+<meta name="description" content="CPML27: the AAAI-27 Bridge on Constraint Programming and Machine Learning, Montréal, Canada, February 16–17, 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#fbfbf9; --card:#fff; --ink:#1b1e2b; --muted:#5f6475; --line:#e6e6e1; --accent:#2f55d4; --accent2:#1f2f6b; --soft:#eef2fd; }
+  :root{--bg:#fbfbf9; --card:#fff; --ink:#1b1e2b; --muted:#5f6475; --line:#e6e6e1; --accent:#2f55d4; --accent2:#1f2f6b; --soft:#eef2fd}
   @media (prefers-color-scheme: dark){
     :root{--bg:#12141c; --card:#1a1d28; --ink:#e6e8f0; --muted:#9a9fb2; --line:#2a2e3c; --accent:#8ea6ff; --accent2:#c3ceff; --soft:#1b2035}
   }
   *{box-sizing:border-box}
   body{margin:0; background:var(--bg); color:var(--ink); font:16.5px/1.7 Inter,system-ui,sans-serif}
   a{color:var(--accent)}
-  h1,h2{font-family:"Source Serif 4",Georgia,serif; font-weight:600; line-height:1.2}
+  h1,h2,h3{font-family:"Source Serif 4",Georgia,serif; font-weight:600; line-height:1.2}
   .wrap{max-width:760px; margin:0 auto; padding:0 16px}
 
   header{background:linear-gradient(135deg,var(--soft),var(--bg) 70%); border-bottom:1px solid var(--line); padding:56px 0 40px}
@@ -30,9 +30,15 @@
 
   section{padding:40px 0 8px}
   h2{font-size:1.45rem; margin:0 0 14px; padding-left:12px; border-left:3px solid var(--accent)}
+  h3{font-size:1.1rem; margin:1.6em 0 .5em}
   p{margin:0 0 1em}
+  ul.list{padding-left:1.2em; margin:0 0 1em}
+  ul.list li{margin:.15em 0}
   .topics{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
   .topics li{background:var(--soft); border-radius:8px; padding:4px 12px; font-size:.92rem}
+  .btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; padding:10px 18px; border-radius:8px; margin:4px 0 12px}
+  @media (prefers-color-scheme: dark){.btn{color:#12141c}}
+  .btn:hover{filter:brightness(1.08)}
 
   .dates{margin:0; padding:0; list-style:none; border-left:2px solid var(--line)}
   .dates li{position:relative; padding:0 0 14px 20px}
@@ -45,9 +51,11 @@
   .avatar{flex:none; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:600; font-size:.9rem; background:linear-gradient(135deg,var(--accent),var(--accent2))}
   .person b{display:block; line-height:1.3}
   .person span{display:block; font-size:.88rem; line-height:1.4; color:var(--muted)}
+  .people.chair{grid-template-columns:minmax(0,380px)}
 
   .tba{color:var(--muted); font-style:italic} /* not yet announced: search for "tba" */
   footer{margin-top:40px; border-top:1px solid var(--line); padding:20px 0 40px; color:var(--muted); font-size:.88rem}
+  footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
 </style>
 </head>
 <body>
@@ -55,18 +63,18 @@
 <header>
   <div class="wrap">
     <p class="eyebrow">AAAI-27 Bridge Program</p>
-    <h1><span class="cp">Constraint Programming</span> and <span class="ml">Machine Learning</span> Bridge</h1>
+    <h1><span class="cp">Constraint Programming</span> and <span class="ml">Machine Learning</span> (CPML27)</h1>
     <ul class="facts">
       <li>February 16–17, 2027</li>
       <li>Montréal, Canada</li>
+      <li>2-day Bridge</li>
     </ul>
     <nav>
       <a href="#about">About</a>
-      <a href="#call">Call for participation</a>
+      <a href="#call">Call for posters</a>
       <a href="#dates">Dates</a>
       <a href="#program">Program</a>
       <a href="#organizers">Organizers</a>
-      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -75,36 +83,60 @@
 
 <section id="about">
   <h2>About</h2>
-  <p>The CPML Bridge brings together the constraint programming and machine learning communities at <a href="https://aaai.org/conference/aaai/aaai-27/">AAAI-27</a>. Through tutorials, short talks and discussion, participants learn each other's tools, share open problems and start new collaborations. Only introductory familiarity with one of the two fields is needed; researchers from related areas (SAT, operations research, optimisation, neuro-symbolic AI) are welcome.</p>
-  <p>Topics include, but are not limited to:</p>
+  <p>The objective of this Bridge is to encourage and showcase the combination of Constraint Programming (CP) and Machine Learning (ML). “Constraint Programming” is taken broadly to encompass all approaches to constraint satisfaction and optimization. “Machine Learning” is taken broadly to include symbolic and neural approaches.</p>
+
+  <h3>Topics</h3>
+  <p>Relevant topics include but are not limited to:</p>
   <ul class="topics">
-    <li>Learning to solve</li>
-    <li>Learned heuristics</li>
+    <li>Acquiring constraints</li>
+    <li>Learning heuristics</li>
+    <li>Performance optimization through tuning</li>
     <li>Algorithm selection</li>
-    <li>Constraint acquisition</li>
-    <li>Predict-then-optimise</li>
-    <li>Decision-focused learning</li>
-    <li>Constraints in neural networks</li>
-    <li>Verification of ML models</li>
-    <li>LLMs for modelling and solving</li>
-    <li>Benchmarks and applications</li>
+    <li>Learning constraint models</li>
+    <li>Using LLMs/Chatbots to solve constraint satisfaction problems</li>
+    <li>Using CP to address ML limitations</li>
+    <li>ML for combinatorial optimization</li>
+    <li>Learning preferences</li>
+    <li>Explanation/reformulation of statistical models with constraints</li>
+    <li>Embedding constraint reasoning in ML</li>
+    <li>Combining prediction and optimization</li>
+    <li>CP for fairness in ML</li>
+    <li>Synthesizing CP models from natural language</li>
   </ul>
+
+  <h3>Format</h3>
+  <p>This will be a 2-day Bridge, with a half day held jointly with the AAAI-27 tutorial on <em>LLMs for Constraint Modeling</em>, for which CPML Bridge registrants are encouraged to register as well. The Bridge will include talks, posters, a panel/discussion and a hackathon.</p>
+
+  <h3>Attendance</h3>
+  <p>Attendance is open to all. Submission of posters is encouraged. Registration is through <a href="https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/">AAAI-27</a>.</p>
 </section>
 
 <section id="call">
-  <h2>Call for participation</h2>
-  <p>Participation is by invitation based on a short submission that combines CP and ML in some way and is accessible to non-specialists. We welcome research abstracts, position papers, open problems, and tool or demo descriptions.</p>
-  <p>Submission link: <span class="tba">TBA</span>. Accepted contributions will be posted on this page.</p>
+  <h2>Call for posters</h2>
+  <p>Submissions are sought in the form of posters. Posters are intended to encourage interaction and start conversations. They should contain basic information on the poster authors, their interests, and contact info. In addition, they must feature one of the following:</p>
+  <ul class="list">
+    <li>work in progress</li>
+    <li>prior published work</li>
+    <li>a demo</li>
+    <li>an application or tool</li>
+    <li>an evaluation or comparison</li>
+    <li>an agent or app</li>
+    <li>a community resource (code, benchmarks, survey, tutorial, bibliography, …)</li>
+    <li>a proposal (for a collaboration, special issue, workshop, competition, …)</li>
+    <li>a “grand challenge” or “research roadmap”</li>
+  </ul>
+  <p>Posters should be accessible to a broad audience from both the CP and ML community.</p>
+  <a class="btn" href="https://forms.gle/DUVVdcKjY4N1uTdt7">Submit your poster (PDF)</a>
 </section>
 
 <section id="dates">
   <h2>Important dates</h2>
   <ul class="dates">
-    <li><b>December 1, 2026</b>Submission deadline</li>
-    <li><b>December 13, 2026</b>Notification</li>
-    <li><b>February 16–17, 2027</b>Bridge at AAAI-27 (exact day <span class="tba">TBA</span>)</li>
+    <li><b>December 1, 2026</b>Poster submissions due</li>
+    <li><b>December 13, 2026</b>Notifications sent to poster submitters</li>
+    <li><b>December 15, 2026</b>AAAI-27 early registration deadline</li>
+    <li><b>February 16–17, 2027</b>Bridge Program at AAAI-27</li>
   </ul>
-  <p class="small">Deadlines are Anywhere on Earth (UTC−12).</p>
 </section>
 
 <section id="program">
@@ -113,20 +145,30 @@
 </section>
 
 <section id="organizers">
-  <h2>Organizers</h2>
-  <div class="people">
-    <div class="person"><div class="avatar">EF</div><div><b>Eugene C. Freuder</b><span>University College Cork</span></div></div>
+  <h2>Bridge Chair</h2>
+  <div class="people chair">
+    <div class="person"><div class="avatar">EF</div><div><b>Eugene Freuder</b><span>Harvard University</span><span><a href="mailto:eugene_freuder@seas.harvard.edu">eugene_freuder@seas.harvard.edu</a></span></div></div>
   </div>
-</section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Questions: <span class="tba">TBA</span>. Registration is through the <a href="https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/">AAAI-27 registration page</a>.</p>
+  <h3>Steering Committee</h3>
+  <div class="people">
+    <div class="person"><div class="avatar">CB</div><div><b>Christian Bessiere</b><span>University of Montpellier</span></div></div>
+    <div class="person"><div class="avatar">TG</div><div><b>Tias Guns</b><span>KU Leuven</span></div></div>
+    <div class="person"><div class="avatar">GF</div><div><b>Golnoosh Farnadi</b><span>McGill University</span></div></div>
+    <div class="person"><div class="avatar">EF</div><div><b>Eugene Freuder</b><span>Harvard University</span></div></div>
+    <div class="person"><div class="avatar">VG</div><div><b>Vijay Ganesh</b><span>Georgia Institute of Technology</span></div></div>
+    <div class="person"><div class="avatar">SK</div><div><b>Serdar Kadıoğlu</b><span>Northwestern Mutual</span></div></div>
+    <div class="person"><div class="avatar">KL</div><div><b>Kevin Leyton-Brown</b><span>University of British Columbia</span></div></div>
+    <div class="person"><div class="avatar">MM</div><div><b>Michela Milano</b><span>University of Bologna</span></div></div>
+    <div class="person"><div class="avatar">BO</div><div><b>Barry O’Sullivan</b><span>University College Cork</span></div></div>
+    <div class="person"><div class="avatar">LR</div><div><b>Louis-Martin Rousseau</b><span>Polytechnique Montréal</span></div></div>
+    <div class="person"><div class="avatar">SS</div><div><b>Stefan Szeider</b><span>TU Wien</span></div></div>
+  </div>
 </section>
 
 </main>
 
-<footer><div class="wrap">CPML Bridge 2027 · AAAI-27 Bridge Program</div></footer>
+<footer><div class="wrap"><span>CPML27 · AAAI-27 Bridge Program</span><span>Webmaster: Dimos Tsouros, University of Western Macedonia</span></div></footer>
 
 </body>
 </html>
